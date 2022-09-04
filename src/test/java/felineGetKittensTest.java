@@ -6,12 +6,12 @@ import org.junit.runners.Parameterized;
 import static org.junit.Assert.assertEquals;
 
 @RunWith(Parameterized.class)
-public class FelineTestKittens {
+public class felineGetKittensTest {
     private int kittensCount;
     private int expected;
     private int actual;
 
-    public FelineTestKittens(int kittensCount, int expected) {
+    public felineGetKittensTest(int kittensCount, int expected) {
         this.kittensCount = kittensCount;
         this.expected = expected;
     }
