@@ -29,13 +29,11 @@ public class FelineTest {
         assertEquals("Должны совпадать","Кошачьи", actual);
     }
 
+    //Оставил как сказал наставник
     @Test
     public void felineGetKittensTest() {
         Feline feline = new Feline();
-        Feline felineTest = Mockito.spy(feline);
-        felineTest.getKittens(1);
-        Mockito.verify(felineTest).getKittens(1);
-        int actual = felineTest.getKittens();
+        int actual = feline.getKittens();
         assertEquals("Должны совпадать",1, actual);
     }
 }
