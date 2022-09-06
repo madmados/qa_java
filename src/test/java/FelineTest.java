@@ -33,7 +33,8 @@ public class FelineTest {
     public void felineGetKittensTest() {
         Feline feline = new Feline();
         Feline felineTest = Mockito.spy(feline);
-        Mockito.when(felineTest.getKittens(1)).thenReturn(1);
+        felineTest.getKittens(1);
+        Mockito.verify(felineTest).getKittens(1);
         int actual = felineTest.getKittens();
         assertEquals("Должны совпадать",1, actual);
     }

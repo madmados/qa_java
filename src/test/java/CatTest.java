@@ -1,5 +1,6 @@
 import com.example.Cat;
 import com.example.Feline;
+import com.example.Lion;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
@@ -9,6 +10,7 @@ import org.mockito.junit.MockitoJUnitRunner;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThrows;
 
 @RunWith(MockitoJUnitRunner.class)
 public class CatTest {
@@ -25,20 +27,9 @@ public class CatTest {
     @Test
     public void catGetFoodTest() throws Exception {
         Cat cat = new Cat(feline);
-        Mockito.when(cat.getFood()).thenReturn(List.of("Животные", "Птицы", "Рыба"));
+        Mockito.when(feline.eatMeat()).thenReturn(List.of("Животные", "Птицы", "Рыба"));
         List<String> actual = cat.getFood();
         assertEquals("Должны совпадать", List.of("Животные", "Птицы", "Рыба"), actual);
-    }
-
-    @Test
-    public void catGetFoodExceptionTest() {
-        try {
-            Cat cat = new Cat(feline);
-            Mockito.when(cat.getFood()).thenThrow(new Exception("Неизвестный вид животного, используйте значение Травоядное или Хищник"));
-        }
-        catch (Exception e) {
-            assertEquals("Должны совпадать","Неизвестный вид животного, используйте значение Травоядное или Хищник", e.getMessage());
-        }
     }
 
 }

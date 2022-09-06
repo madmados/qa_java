@@ -1,7 +1,5 @@
-import com.example.Cat;
 import com.example.Feline;
 import com.example.Lion;
-import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
@@ -11,6 +9,7 @@ import org.mockito.junit.MockitoJUnitRunner;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThrows;
 
 @RunWith(MockitoJUnitRunner.class)
 public class LionTest {
@@ -31,15 +30,12 @@ public class LionTest {
         boolean actual = lion.doesHaveMane();
         assertEquals("Должны совпадать", false, actual);
     }
-
     @Test
     public void lionExceptionTest() {
-        try {
+        Exception e = assertThrows(Exception.class, () -> {
             Lion lion = new Lion("Неизвестный", feline);
-        }
-        catch (Exception e) {
-            assertEquals("Должны совпадать","Используйте допустимые значения пола животного - самец или самка", e.getMessage());
-        }
+        });
+        assertEquals("Должны совпадать","Используйте допустимые значения пола животного - самец или самка", e.getMessage());
     }
 
     @Test
